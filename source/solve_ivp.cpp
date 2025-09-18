@@ -189,8 +189,9 @@ std::vector < std::vector< point > > solve_ivp(const point& S, double h, double 
 			tmp1P = RK4(res[res.size() - 1], h / 2);
 			tmp2P = RK4(tmp1P, h / 2);
 			curRTol.X = tmp2P.X + (-1) * curP.X;
+			OLP = norm2(curRTol.X) / double((1ull << p) - 1);
+			curRTol.X = double(1ull << p) / double((1ull << p) - 1) * (tmp2P.X + (-1) * curP.X);
 			if (withOLP) {
-				OLP = norm2(curRTol.X) / ((1ull << p) - 1);
 				if (OLP > tol) {
 					h /= 2;
 					next = false; // recalculate point
