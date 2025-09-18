@@ -71,18 +71,32 @@ std::vector<double> answer(double t, const std::vector<double>& S) {
 	return Y;
 }
 
-bool isless(const point& x, const point& l) {
+bool isless_all(const point& x, const point& l) {
 	if (x.t > l.t) return false;
 	for (size_t i = 0; i < x.X.size(); ++i) if (x.X[i] > l.X[i]) return false;
 
 	return true;
 }
 
-bool ismore(const point& x, const point& r) {
+bool ismore_all(const point& x, const point& r) {
 	if (x.t < r.t) return false;
 	for (size_t i = 0; i < x.X.size(); ++i) if (x.X[i] < r.X[i]) return false;
 
 	return true;
+}
+
+bool isless_any(const point& x, const point& l) {
+	if (x.t < l.t) return true;
+	for (size_t i = 0; i < x.X.size(); ++i) if (x.X[i] < l.X[i]) return true;
+
+	return false;
+}
+
+bool ismore_any(const point& x, const point& r) {
+	if (x.t > r.t) return true;
+	for (size_t i = 0; i < x.X.size(); ++i) if (x.X[i] > r.X[i]) return true;
+
+	return false;
 }
 
 
@@ -140,6 +154,7 @@ std::vector < std::vector< point > > solve_ivp(const point& S, double h, double 
 	point curAns;
 	bool abort = false;
 	bool next;
+	bool abortnow = false;
 	double OLP;
 	curGTol.t = S.t;
 	curRTol.t = S.t;
@@ -149,20 +164,22 @@ std::vector < std::vector< point > > solve_ivp(const point& S, double h, double 
 	relatieTol.push_back(curRTol);
 	res.push_back(S);
 	ans.push_back(S);
+	std::vector <std::vector <point> > ret;
 
 	while (!abort) {
-		abort = false;
 		next = false;
 		while (!next) {
+			abort = false;
+			abortnow = false;
 			next = true;
 			
 			// next point calculation
 			curP = RK4(curP, h);
-			if (isless(curP, maxPeps) && ismore(curP, minPeps)) {
+			if (isless_all(curP, maxPeps) && ismore_all(curP, minPeps)) {
 			}
-			else if (ismore(curP, maxP) || isless(curP, minP)) {
+			else if (ismore_any(curP, maxP) || isless_any(curP, minP)) {
 				abort = true;
-				break;
+				abortnow = true;
 			}
 			else {
 				abort = true;
@@ -184,7 +201,8 @@ std::vector < std::vector< point > > solve_ivp(const point& S, double h, double 
 				}
 			}
 		}
-
+		if (abortnow) break;
+		
 		curGTol.t = curP.t;
 		curRTol.t = curP.t;
 		curAns.t = curP.t;
@@ -196,7 +214,6 @@ std::vector < std::vector< point > > solve_ivp(const point& S, double h, double 
 		res.push_back(curP);
 	}
 
-	std::vector <std::vector <point> > ret;
 	ret.push_back(res);
 	ret.push_back(globalTol);
 	ret.push_back(relatieTol);
@@ -244,10 +261,10 @@ int main(int argc, char **argv) {
 
 		std::vector <std::vector <point> > points = solve_ivp(S, h, tol, minP, maxP);
 
-		std::ofstream pFile("C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/pFile.txt");
-		std::ofstream gTolFile("C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/gTolFile.txt");
-		std::ofstream rTolFile("C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/rTolFile.txt");
-		std::ofstream ansFile("C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/ansFile.txt");
+		std::ofstream pFile("C:/Users/chehp/OneDrive/Desktop/all/Git-Projects/Stiff_equation/data/pFile.txt");
+		std::ofstream gTolFile("C:/Users/chehp/OneDrive/Desktop/all/Git-Projects/Stiff_equation/data/gTolFile.txt");
+		std::ofstream rTolFile("C:/Users/chehp/OneDrive/Desktop/all/Git-Projects/Stiff_equation/data/rTolFile.txt");
+		std::ofstream ansFile("C:/Users/chehp/OneDrive/Desktop/all/Git-Projects/Stiff_equation/data/ansFile.txt");
 
 		pFile << std::scientific << std::setprecision(8);
 		gTolFile << std::scientific << std::setprecision(8);

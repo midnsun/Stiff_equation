@@ -1,9 +1,9 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\chehp\\OneDrive\\Desktop\\all\\SE\\KSR1\\",
+  "WorkspaceRootPath": "C:\\Users\\chehp\\OneDrive\\Desktop\\all\\Git-Projects\\Stiff_equation\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1DCCF6EF-74C4-4C83-815C-22B0A5C764EF}|KSR1.vcxproj|C:\\Users\\chehp\\OneDrive\\Desktop\\all\\SE\\KSR1\\source\\solve_ivp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "AbsoluteMoniker": "D:0:0:{1DCCF6EF-74C4-4C83-815C-22B0A5C764EF}|KSR1.vcxproj|C:\\Users\\chehp\\OneDrive\\Desktop\\all\\Git-Projects\\Stiff_equation\\source\\solve_ivp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{1DCCF6EF-74C4-4C83-815C-22B0A5C764EF}|KSR1.vcxproj|solutionrelative:source\\solve_ivp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
@@ -20,11 +20,11 @@
               "$type": "Document",
               "DocumentIndex": 0,
               "Title": "solve_ivp.cpp",
-              "DocumentMoniker": "C:\\Users\\chehp\\OneDrive\\Desktop\\all\\SE\\KSR1\\source\\solve_ivp.cpp",
+              "DocumentMoniker": "C:\\Users\\chehp\\OneDrive\\Desktop\\all\\Git-Projects\\Stiff_equation\\source\\solve_ivp.cpp",
               "RelativeDocumentMoniker": "source\\solve_ivp.cpp",
-              "ToolTip": "C:\\Users\\chehp\\OneDrive\\Desktop\\all\\SE\\KSR1\\source\\solve_ivp.cpp",
+              "ToolTip": "C:\\Users\\chehp\\OneDrive\\Desktop\\all\\Git-Projects\\Stiff_equation\\source\\solve_ivp.cpp",
               "RelativeToolTip": "source\\solve_ivp.cpp",
-              "ViewState": "AgIAAOoAAAAAAAAAAAAAAPoAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAKkAAAAAAAAAAAAAAMsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-09-18T06:31:07.31Z",
               "EditorCaption": ""

@@ -7,7 +7,9 @@ import numpy as np
 import os
 import sys
 
-fnames = "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/pFile.txt", "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/ansFile.txt", "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/gTolFile.txt", "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/rTolFile.txt"
+curpath = 'C:\\Users\\chehp\\OneDrive\Desktop\\all\\Git-Projects\\Stiff_equation\\'
+# fnames = "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/pFile.txt", "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/ansFile.txt", "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/gTolFile.txt", "C:/Users/chehp/OneDrive/Desktop/all/SE/KSR1/data/rTolFile.txt"
+fnames = curpath+'data\\pFile.txt', curpath+'data\\ansFile.txt', curpath+'data\\gTolFile.txt', curpath+'data\\rTolFile.txt'
 tnames = "RK", "Answer", "Global", "Local"
 
 class TrajectoryApp:
@@ -98,7 +100,7 @@ class TrajectoryApp:
         # Run your external solver (adjust command if needed)
         try:
             subprocess.run([
-                "C:\\Users\\chehp\\OneDrive\\Desktop\\all\\SE\\KSR1\\x64\\Release\\KSR1.exe ",
+                curpath+'x64\\Release\\KSR1.exe ',
                 "0",
                 "7",
                 "13",
