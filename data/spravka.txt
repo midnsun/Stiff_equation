@@ -1,0 +1,3 @@
+Count of steps: 50
+Global tolerance: point and max value: 2.0000000000000000e-03	8.4003458331062708e-01
+How close to zero: 1.4128283119655361e+01
